@@ -3,45 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive | UFC</title>
-    <!-- We don't necessarily need three.js here unless we want the same bg, we'll keep it clean -->
+    <title>Project Archive | UFC</title>
+    <meta name="description" content="Complete archive of USAR Foss Club deployments.">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <nav>
         <a href="index.html" class="logo">UFC.</a>
         <div class="nav-links">
-            <a href="projects.html" style="opacity: 0.5;">Work</a>
+            <a href="index.html">Home</a>
+            <a href="projects.html" style="opacity:0.5;">Projects</a>
             <a href="index.html#services">Capabilities</a>
             <a href="index.html#about">About</a>
-            <a href="index.html#cta">Contact</a>
         </div>
         <button class="menu-btn">MENU</button>
     </nav>
 
     <div class="mobile-nav">
-        <a href="projects.html">Work</a>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
         <a href="index.html#services">Capabilities</a>
         <a href="index.html#about">About</a>
         <a href="index.html#cta">Contact</a>
     </div>
 
-    <!-- Archive Hero -->
-    <section class="page-hero">
-        <div class="fade-up">
-            <span class="label">Archive</span>
-            <h1>All Projects</h1>
-            <p class="hero-subtitle" style="margin-top: 1rem; max-width: 600px;">A comprehensive, raw overview of deployments and experiments from the collective.</p>
-        </div>
-    </section>
+    <!-- Noise overlay -->
+    <div class="noise-overlay"></div>
 
-    <!-- Projects Grid Layout (Temporary wrapper) -->
-    <section style="padding-top: 0;">
-        <div id="all-projects-grid" class="all-projects-grid">
-            <!-- Populated via main.js -->
+    <main class="archive-main">
+        <div class="archive-container">
+
+            <!-- Hero -->
+            <header class="archive-hero">
+                <div class="hero-top-row fade-up">
+                    <div class="hero-coord">
+                        <span class="coord-label">SYS.DIR</span>
+                        <span class="coord-value">/ARCHIVE</span>
+                    </div>
+                    <div class="hero-coord">
+                        <span class="coord-label">STATUS</span>
+                        <span class="coord-value status-live"><span class="live-dot"></span>OPERATIONAL</span>
+                    </div>
+                    <div class="hero-coord">
+                        <span class="coord-label">ENTRIES</span>
+                        <span class="coord-value" id="entry-count">030</span>
+                    </div>
+                    <div class="hero-coord">
+                        <span class="coord-label">BUILD</span>
+                        <span class="coord-value">V3.4.1</span>
+                    </div>
+                </div>
+                <div class="hero-title-block fade-up delay-1">
+                    <div class="hero-line-accent"></div>
+                    <h1 class="archive-title">
+                        <span class="title-line">PROJECT</span>
+                        <span class="title-line title-outline">ARCHIVE</span>
+                    </h1>
+                    <p class="archive-subtitle">Technical repository of deployments, core logic systems, and high-performance engineering modules compiled by the collective.</p>
+                </div>
+            </header>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <span class="filter-label">FILTER_BY:</span>
+                    <div class="filter-tags">
+                        <button class="filter-tag active" data-filter="all">ALL</button>
+                        <button class="filter-tag" data-filter="FinTech">FINTECH</button>
+                        <button class="filter-tag" data-filter="AI/ML">AI/ML</button>
+                        <button class="filter-tag" data-filter="Web3">WEB3</button>
+                        <button class="filter-tag" data-filter="SaaS">SAAS</button>
+                        <button class="filter-tag" data-filter="E-Commerce">E-COM</button>
+                        <button class="filter-tag" data-filter="Healthcare">HEALTH</button>
+                    </div>
+                </div>
+                <div class="filter-search">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                    <input type="text" id="project-search" placeholder="SEARCH..." class="search-input">
+                </div>
+            </div>
+
+            <!-- All Projects Grid -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- CTA -->
+            <section class="archive-cta fade-up">
+                <div class="cta-deco-line"></div>
+                <span class="archive-label-tag">INITIALIZING_PROTOCOL</span>
+                <h2 class="cta-title">START YOUR<br>DEPLOYMENT?</h2>
+                <div class="cta-buttons">
+                    <a href="mailto:hello@usarfoss.club" class="cta-primary">
+                        <span>INITIALIZE_CONTACT</span>
+                        <span class="material-symbols-outlined">arrow_outward</span>
+                    </a>
+                    <a href="index.html#services" class="cta-secondary">SYSTEM_CAPABILITIES</a>
+                </div>
+            </section>
+
         </div>
-    </section>
+    </main>
 
     <footer>
         <div class="logo">UFC.</div>
@@ -55,10 +120,9 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <!-- Using the same data architecture to dynamically inject the temporary layout structure -->
     <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/projects.js"></script>
 
 </body>
 </html>

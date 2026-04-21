@@ -1,10 +1,10 @@
 // Mobile Navigation Toggle
 const menuBtn = document.querySelector('.menu-btn');
 const mobileNav = document.querySelector('.mobile-nav');
-if(menuBtn && mobileNav) {
+if (menuBtn && mobileNav) {
     menuBtn.addEventListener('click', () => {
         mobileNav.classList.toggle('active');
-        if(mobileNav.classList.contains('active')) {
+        if (mobileNav.classList.contains('active')) {
             menuBtn.textContent = 'CLOSE';
         } else {
             menuBtn.textContent = 'MENU';
@@ -50,68 +50,68 @@ observeExistingFadeUps();
 const canvas = document.getElementById('hero-canvas');
 if (canvas && typeof THREE !== 'undefined') {
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    
+
     let camera;
     function resizeCanvas() {
         const heroSection = document.getElementById('hero');
         if (!heroSection) return;
-        
+
         const width = heroSection.clientWidth;
         const height = heroSection.clientHeight;
-        
+
         renderer.setSize(width, height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        
-        if(camera) {
+
+        if (camera) {
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
         }
     }
-    
+
     const scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.z = 10;
-    
+
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
-    
+
     const geometry = new THREE.TorusKnotGeometry(3, 0.8, 100, 16);
-    const material = new THREE.MeshBasicMaterial({ 
-        color: 0xffffff, 
+    const material = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
         wireframe: true,
         transparent: true,
         opacity: 0.15
     });
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
-    
+
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
-    
+
     document.addEventListener('mousemove', (event) => {
         mouseX = (event.clientX - window.innerWidth / 2);
         mouseY = (event.clientY - window.innerHeight / 2);
     });
-    
+
     const clock = new THREE.Clock();
-    
+
     function animate() {
         requestAnimationFrame(animate);
         const elapsedTime = clock.getElapsedTime();
-    
+
         targetX = mouseX * 0.001;
         targetY = mouseY * 0.001;
-    
+
         mesh.rotation.y += 0.05 * (targetX - mesh.rotation.y);
         mesh.rotation.x += 0.05 * (targetY - mesh.rotation.x);
         mesh.rotation.z += 0.002;
         mesh.position.y = Math.sin(elapsedTime * 0.5) * 0.2;
-    
+
         renderer.render(scene, camera);
     }
-    
+
     window.addEventListener('load', () => {
         animate();
     });
@@ -122,7 +122,7 @@ const featuredGrid = document.querySelector('.project-grid.featured');
 if (featuredGrid && typeof MOCK_PROJECTS !== 'undefined') {
     const shuffled = [...MOCK_PROJECTS].sort(() => 0.5 - Math.random());
     const featured = shuffled.slice(0, 6);
-    
+
     featuredGrid.innerHTML = featured.map((p, i) => {
         let delayClass = `delay-${(i % 3) + 1}`; // Staggering effect
         return `
@@ -153,14 +153,14 @@ if (featuredGrid && typeof MOCK_PROJECTS !== 'undefined') {
                             <h3 class="p-title">${p.title}</h3>
                             <p class="p-desc">${p.shortDescription}</p>
                             <div class="tech-stack-wrap"><span>Stack:</span> ${p.techStack}</div>
-                            <div class="view-btn">Review Case Study <span>→</span></div>
+                            <div class="view-btn">View Project<span>→</span></div>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
     `}).join('');
-    
+
     // Call observer again to catch the newly injected nodes
     observeExistingFadeUps();
 }
@@ -196,14 +196,14 @@ if (allProjectsGrid && typeof MOCK_PROJECTS !== 'undefined') {
                             <h3 class="p-title">${p.title}</h3>
                             <p class="p-desc">${p.shortDescription}</p>
                             <div class="tech-stack-wrap"><span>Stack:</span> ${p.techStack}</div>
-                            <div class="view-btn">Review Case Study <span>→</span></div>
+                            <div class="view-btn">View Project<span>→</span></div>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
     `).join('');
-    
+
     // Call observer again to catch the newly injected nodes
     observeExistingFadeUps();
 }
