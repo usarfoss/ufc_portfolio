@@ -46,6 +46,29 @@ function observeExistingFadeUps() {
 // Initial observer call
 observeExistingFadeUps();
 
+// Nav link active observer
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+if (sections.length > 0 && navLinks.length > 0) {
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href === `#${id}` || href === `index.html#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.2, rootMargin: "-10% 0px -80% 0px" });
+
+    sections.forEach(section => navObserver.observe(section));
+}
+
 // --- THREE.JS HERO BACKGROUND ---
 const canvas = document.getElementById('hero-canvas');
 if (canvas && typeof THREE !== 'undefined') {
@@ -64,6 +87,7 @@ if (canvas && typeof THREE !== 'undefined') {
 
         if (camera) {
             camera.aspect = width / height;
+            camera.position.z = width < 768 ? 16 : 10;
             camera.updateProjectionMatrix();
         }
     }
@@ -95,10 +119,33 @@ if (canvas && typeof THREE !== 'undefined') {
         mouseY = (event.clientY - window.innerHeight / 2);
     });
 
+    document.addEventListener('touchstart', (event) => {
+        if (event.touches.length > 0) {
+            mouseX = (event.touches[0].clientX - window.innerWidth / 2);
+            mouseY = (event.touches[0].clientY - window.innerHeight / 2);
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (event) => {
+        if (event.touches.length > 0) {
+            mouseX = (event.touches[0].clientX - window.innerWidth / 2);
+            mouseY = (event.touches[0].clientY - window.innerHeight / 2);
+        }
+    }, { passive: true });
+
     const clock = new THREE.Clock();
+
+    let isHeroVisible = true;
+    const heroObserver = new IntersectionObserver((entries) => {
+        isHeroVisible = entries[0].isIntersecting;
+    }, { threshold: 0 });
+    const heroSection = document.getElementById('hero');
+    if (heroSection) heroObserver.observe(heroSection);
 
     function animate() {
         requestAnimationFrame(animate);
+        if (!isHeroVisible) return; // Pause rendering loop to save CPU/Battery
+
         const elapsedTime = clock.getElapsedTime();
 
         targetX = mouseX * 0.001;
@@ -207,3 +254,24 @@ if (allProjectsGrid && typeof MOCK_PROJECTS !== 'undefined') {
     // Call observer again to catch the newly injected nodes
     observeExistingFadeUps();
 }
+
+// Mobile touch active state fallback for projects
+// Prevents sticky "hover" on touch devices and ensures tapping outside closes them
+document.addEventListener('touchstart', (e) => {
+    // Check if we are touching a project wrap
+    const clickedWrap = e.target.closest('.project-wrap');
+
+    if (!clickedWrap) {
+        // Touched outside, clear all
+        document.querySelectorAll('.project-wrap').forEach(w => w.classList.remove('touch-active'));
+        return;
+    }
+
+    // Clear others
+    document.querySelectorAll('.project-wrap').forEach(w => {
+        if (w !== clickedWrap) w.classList.remove('touch-active');
+    });
+
+    // Add to clicked
+    clickedWrap.classList.add('touch-active');
+}, { passive: true });
