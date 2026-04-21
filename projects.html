@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | UFC</title>
+    <!-- We don't necessarily need three.js here unless we want the same bg, we'll keep it clean -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html" class="logo">UFC.</a>
+        <div class="nav-links">
+            <a href="projects.html" style="opacity: 0.5;">Work</a>
+            <a href="index.html#services">Capabilities</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#cta">Contact</a>
+        </div>
+        <button class="menu-btn">MENU</button>
+    </nav>
+
+    <div class="mobile-nav">
+        <a href="projects.html">Work</a>
+        <a href="index.html#services">Capabilities</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#cta">Contact</a>
+    </div>
+
+    <!-- Archive Hero -->
+    <section class="page-hero">
+        <div class="fade-up">
+            <span class="label">Archive</span>
+            <h1>All Projects</h1>
+            <p class="hero-subtitle" style="margin-top: 1rem; max-width: 600px;">A comprehensive, raw overview of deployments and experiments from the collective.</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid Layout (Temporary wrapper) -->
+    <section style="padding-top: 0;">
+        <div id="all-projects-grid" class="all-projects-grid">
+            <!-- Populated via main.js -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">UFC.</div>
+        <div class="footer-links">
+            <a href="#">Github</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <div>
+            <p style="font-size: 0.85rem;">© 2026 USAR Foss Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Using the same data architecture to dynamically inject the temporary layout structure -->
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>

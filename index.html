@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFC | USAR Foss Club</title>
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html" class="logo">UFC.</a>
+        <div class="nav-links">
+            <a href="projects.html">Work</a>
+            <a href="#services">Capabilities</a>
+            <a href="#about">About</a>
+            <a href="#cta">Contact</a>
+        </div>
+        <button class="menu-btn">MENU</button>
+    </nav>
+
+    <div class="mobile-nav">
+        <a href="projects.html">Work</a>
+        <a href="#services">Capabilities</a>
+        <a href="#about">About</a>
+        <a href="#cta">Contact</a>
+    </div>
+
+    <!-- 1. Hero -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content fade-up">
+            <h1 class="hero-title">We Build<br>Experiences.</h1>
+            <p class="hero-subtitle">USAR Foss Club delivering client-ready digital products.</p>
+        </div>
+    </section>
+
+    <!-- 2. Trust Signals / Stats -->
+    <section class="stats-section">
+        <div class="stats-grid fade-up">
+            <div class="stat-item">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Deployments</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Core Domains</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">99%</span>
+                <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Projects -->
+    <section id="work">
+        <div class="projects-header fade-up">
+            <div>
+                <span class="label">Featured Work</span>
+                <h2>Selected<br>Projects</h2>
+            </div>
+            <a href="projects.html" class="view-all">View Full Archive →</a>
+        </div>
+        <!-- This grid is dynamically populated by main.js -->
+        <div class="project-grid featured"></div>
+    </section>
+
+    <!-- 4. Services / Capabilities -->
+    <section id="services">
+        <span class="label fade-up">Capabilities</span>
+        <h2 class="fade-up">What We Build</h2>
+        <div class="services-grid">
+            <div class="service-card fade-up">
+                <h3>Full-Stack Engineering</h3>
+                <p>End-to-end web applications with robust backends and dynamic, responsive frontends.</p>
+            </div>
+            <div class="service-card fade-up delay-1">
+                <h3>AI & Machine Learning</h3>
+                <p>Integrating intelligence into applications through NLP pipelines, predictive models, and LLMs.</p>
+            </div>
+            <div class="service-card fade-up delay-2">
+                <h3>Web3 & Blockchain</h3>
+                <p>Decentralized applications, smart contract deployment, and fintech integrations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Process / Timeline -->
+    <section id="process">
+        <span class="label fade-up">Our Approach</span>
+        <h2 class="fade-up">How We Work</h2>
+        <div class="process-list">
+            <div class="process-step fade-up">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Discovery</h3>
+                    <p>Understanding the problem space, target audience, and business objectives to formulate a strategic architecture.</p>
+                </div>
+            </div>
+            <div class="process-step fade-up">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Design</h3>
+                    <p>Executing high-fidelity UI/UX, prioritizing premium aesthetics and seamless user journeys.</p>
+                </div>
+            </div>
+            <div class="process-step fade-up">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Develop</h3>
+                    <p>Engineering scalable, performant systems using cutting-edge frameworks and strict code standards.</p>
+                </div>
+            </div>
+            <div class="process-step fade-up">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3>Deploy</h3>
+                    <p>Rigorous QA, automated testing, and seamless production deployment for a flawless launch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. About -->
+    <section id="about">
+        <div class="about-content fade-up">
+            <span class="label">The Collective</span>
+            <p><strong>UFC (USAR Foss Club)</strong> is an elite collective of student engineers and designers obsessively dedicated to pushing the boundaries of digital product development.</p>
+            <p>We don't just write code; we architect solutions that create market dominance. We bridge the gap between academic theory and high-stakes industry execution.</p>
+        </div>
+    </section>
+
+    <!-- 7. Marquee -->
+    <section class="marquee-section">
+        <div class="marquee-container">
+            <div class="marquee-content fade-up">
+                <div class="marquee-item">The Echo Chamber — </div>
+                <div class="marquee-item">Future Proof Systems — </div>
+                <div class="marquee-item">Cinematic Interfaces — </div>
+                <div class="marquee-item">Elite Engineering — </div>
+                <div class="marquee-item">Let's Build It — </div>
+            </div>
+            <div class="marquee-content fade-up delay-1">
+                <div class="marquee-item">The Echo Chamber — </div>
+                <div class="marquee-item">Future Proof Systems — </div>
+                <div class="marquee-item">Cinematic Interfaces — </div>
+                <div class="marquee-item">Elite Engineering — </div>
+                <div class="marquee-item">Let's Build It — </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CTA & Footer -->
+    <section id="cta">
+        <div class="fade-up">
+            <h2 class="cta-title">Let's build<br>something iconic.</h2>
+            <a href="mailto:hello@usarfoss.club" class="btn">Initiate Project</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">UFC.</div>
+        <div class="footer-links">
+            <a href="#">Github</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <div>
+            <p style="font-size: 0.85rem;">© 2026 USAR Foss Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>
