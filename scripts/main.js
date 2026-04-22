@@ -275,3 +275,29 @@ document.addEventListener('touchstart', (e) => {
     // Add to clicked
     clickedWrap.classList.add('touch-active');
 }, { passive: true });
+
+// --- MAGNETIC BUTTON LOGIC ---
+const wrapper = document.getElementById('magnet-target');
+const btn = document.getElementById('magnet-btn');
+
+if (wrapper && btn) {
+    // How strong the pull is (higher = pulls further away from center)
+    const magneticStrength = 0.4; 
+
+    wrapper.addEventListener('mousemove', (e) => {
+        // Get dimensions and position of the invisible wrapper
+        const rect = wrapper.getBoundingClientRect();
+        
+        // Calculate mouse position relative to the center of the wrapper
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Move the inner button towards the mouse
+        btn.style.transform = `translate(${x * magneticStrength}px, ${y * magneticStrength}px)`;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        // Snap back to dead center when the mouse leaves the area
+        btn.style.transform = `translate(0px, 0px)`;
+    });
+}

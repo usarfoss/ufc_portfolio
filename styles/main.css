@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;900&family=Inter:wght@300;400;600;700;900&display=swap');
 
 :root {
     --bg-color: #000000;
@@ -139,6 +139,7 @@ nav {
 .nav-links {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -676,33 +677,176 @@ nav {
     }
 }
 
-/* CTA */
-#cta {
+/* --- THE CTA SECTION --- */
+.cta-section {
+    position: relative;
+    width: 100%;
+    padding: 10rem 5vw;
     text-align: center;
-    padding: 8rem 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000000 80%);
+    overflow: hidden;
+}
+
+/* Subtle background grid to match the tech theme */
+.cta-grid {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.cta-label::before, .cta-label::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--muted);
 }
 
 .cta-title {
-    font-size: clamp(3rem, 6vw, 6rem);
-    margin-bottom: 3rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--fg-color);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
-.btn {
+/* Fills in with solid white when hovering over the section */
+.cta-section:hover .cta-title {
+    color: var(--fg-color);
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.cta-subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 4rem auto;
+    line-height: 1.6;
+}
+
+/* --- THE MAGNETIC BUTTON --- */
+.btn-wrapper {
     display: inline-block;
-    background: var(--fg-color);
-    color: var(--bg-color);
-    padding: 1.25rem 3rem;
+    padding: 2rem; /* Creates a large invisible hit area for the magnetic effect */
+    cursor: pointer;
+}
+
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 3rem;
+    background: transparent;
+    color: var(--fg-color);
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
     text-decoration: none;
-    transition: transform var(--transition-fast), background var(--transition-fast);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Will-change optimizes the continuous transform animations */
+    will-change: transform; 
 }
 
-.btn:hover {
-    transform: translateY(-5px);
-    background: #dddddd;
+.magnetic-btn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--fg-color);
+    border-radius: 50%;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+.btn-wrapper:hover .magnetic-btn {
+    border-color: var(--fg-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.btn-wrapper:hover .magnetic-btn::before {
+    transform: translateY(-100%) scale(2);
+    border-radius: 0;
+}
+
+/* Status indicator blinking dot */
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00ff66;
+    border-radius: 50%;
+    margin-right: 12px;
+    box-shadow: 0 0 10px #00ff66;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* Navbar Minimal Contact Link */
+.nav-contact-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--fg-color) !important;
+    font-weight: 600;
+}
+
+.status-dot-small {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #00ff66;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff66;
+    animation: pulse 2s infinite;
 }
 
 /* Footer */
@@ -782,7 +926,7 @@ footer {
         font-size: clamp(1.5rem, 8vw, 2.5rem);
     }
 
-    #cta {
+    .cta-section {
         padding: 5rem 5vw;
     }
 
