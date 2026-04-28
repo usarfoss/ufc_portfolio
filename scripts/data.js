@@ -1,37 +1,57 @@
-// UFC Mock Project Data
-// Using placeholder images from Unsplash or generic placeholders.
-const MOCK_PROJECTS = Array.from({ length: 30 }, (_, i) => {
-    const domains = ['FinTech', 'Web3', 'AI/ML', 'E-Commerce', 'SaaS', 'Healthcare'];
-    const techs = ['React', 'Node.js', 'Python', 'Solidity', 'Vue', 'Next.js', 'PyTorch', 'AWS'];
-    
-    // Pick random domain
-    const domain = domains[Math.floor(Math.random() * domains.length)];
-    
-    // Pick 2-3 random techs
-    const numTechs = Math.floor(Math.random() * 2) + 2;
-    const stack = [];
-    for(let j=0; j<numTechs; j++) {
-        stack.push(techs[Math.floor(Math.random() * techs.length)]);
+// UFC Real Project Data
+const MOCK_PROJECTS = [
+    {
+        id: 1,
+        title: "Backstage",
+        domain: "Web App",
+        techStack: "React, Node.js, Mapbox",
+        realImage: "images/project_backstage_light.png",
+        shortDescription: "A centralized event discovery and logistics platform for university environments. Seamlessly aggregates club activities, official engagements, and provides an integrated, real-time campus parking availability module.",
+        link: "https://events.parkconscious.in/"
+    },
+    {
+        id: 2,
+        title: "Stride",
+        domain: "Web3",
+        techStack: "Next.js, Solidity, Web3.js",
+        realImage: "images/project_stride_light.png",
+        shortDescription: "A Web3 ecosystem bridging physical endurance with blockchain incentives. Features live global racing, GPS-precision tracking, seasonal leaderboards, and verifiable on-chain NFTs rewarding athletic milestones.",
+        link: "https://sidd190.github.io/StrideWeb/"
+    },
+    {
+        id: 3,
+        title: "Quik Type",
+        domain: "Web App",
+        techStack: "React, Socket.io, Node.js",
+        realImage: "images/project_quiktype_light.png",
+        shortDescription: "A high-octane, real-time multiplayer typing engine. Evaluates WPM and precision metrics instantly while synchronizing competitive states across global lobbies via zero-latency sockets.",
+        link: "https://quik-type.vercel.app/"
+    },
+    {
+        id: 4,
+        title: "My Metro Mates",
+        domain: "PWA",
+        techStack: "React, PWA, Firebase",
+        realImage: "images/project_metromates_light.png",
+        shortDescription: "A Progressive Web App engineered to connect daily commuters. Utilizes advanced route-matching algorithms to build secure, localized networking micro-communities based on shared transit paths.",
+        link: "https://my-metro-mates-1nlt.vercel.app/dashboard"
+    },
+    {
+        id: 5,
+        title: "Takitt",
+        domain: "Client",
+        techStack: "Next.js, Framer Motion, Tailwind",
+        realImage: "images/project_takitt_light.png",
+        shortDescription: "A bespoke digital presence architected for a prominent Indian Cultural Performing Arts institution. Prioritizes premium visual storytelling, fluid animations, and robust client accessibility.",
+        link: "https://www.takitt.org/"
+    },
+    {
+        id: 6,
+        title: "Connect-Four",
+        domain: "Gaming",
+        techStack: "React, Node.js, Socket.io",
+        realImage: "images/project_connectfour_light.png",
+        shortDescription: "A server-authoritative multiplayer gaming client. Built on WebSockets for instantaneous move propagation, featuring dynamic matchmaking rooms and bulletproof server-side win-condition verification.",
+        link: "https://connect-four-frontend-ruz5.onrender.com/"
     }
-    const uniqueStack = [...new Set(stack)];
-
-    const titles = [
-        "Nexus Data Pipeline", "Aura DeFi Platform", "Vanguard AI Dashboard", 
-        "Echo CRM", "Zenith Health App", "Quantum Trading Bot", 
-        "Vertex Analytics", "Orbit Logistics Sys", "Nova E-Commerce", 
-        "Pulse Social Graph"
-    ];
-
-    const title = titles[i % titles.length] + (i >= titles.length ? ` v${Math.floor(i/titles.length) + 1}` : '');
-
-    return {
-        id: i + 1,
-        title: title,
-        domain: domain,
-        techStack: uniqueStack.join(', '),
-        image: `https://images.unsplash.com/photo-${1500000000000 + i * 1000000}?auto=format&fit=crop&q=80&w=800&h=600`, // random-ish looking hash for unsplash
-        // We will use a reliable placeholder service for production readiness
-        realImage: `https://picsum.photos/seed/${i+1}/800/600`,
-        shortDescription: `A scalable ${domain} solution utilizing ${uniqueStack[0]} to drive business growth.`
-    };
-});
+];

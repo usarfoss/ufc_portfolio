@@ -174,7 +174,7 @@ if (featuredGrid && typeof MOCK_PROJECTS !== 'undefined') {
         let delayClass = `delay-${(i % 3) + 1}`; // Staggering effect
         return `
         <div class="project-wrap fade-up ${delayClass}">
-            <a href="projects.html" style="text-decoration: none; color: inherit; display: block; position: relative;">
+            <a href="${p.link}" target="_blank" style="text-decoration: none; color: inherit; display: block; position: relative;">
                 <div class="project-base">
                     <div class="project-thumbnail">
                         <img src="${p.realImage}" alt="${p.title}">
@@ -217,7 +217,7 @@ const allProjectsGrid = document.getElementById('all-projects-grid');
 if (allProjectsGrid && typeof MOCK_PROJECTS !== 'undefined') {
     allProjectsGrid.innerHTML = MOCK_PROJECTS.map((p, index) => `
         <div class="project-wrap fade-up delay-${(index % 3) + 1}">
-            <a href="projects.html" style="text-decoration: none; color: inherit; display: block; position: relative;">
+            <a href="${p.link}" target="_blank" style="text-decoration: none; color: inherit; display: block; position: relative;">
                 <div class="project-base">
                     <div class="project-thumbnail">
                         <img src="${p.realImage}" alt="${p.title}" loading="lazy">

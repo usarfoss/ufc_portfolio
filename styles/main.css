@@ -333,15 +333,19 @@ nav {
 .project-wrap {
     display: block;
     position: relative;
-    /* Crucial for hover bounding */
     cursor: pointer;
     z-index: 1;
-    /* Establish base stacking context */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .project-wrap:hover, .project-wrap.touch-active {
     z-index: 100;
-    /* Elevate the entire wrapper above its siblings so the popup isn't clipped by subsequent rows */
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .project-base {
@@ -367,9 +371,10 @@ nav {
     position: relative;
     overflow: hidden;
     aspect-ratio: 16/9;
-    /* Much smaller/wider than before */
     background: var(--accent);
     width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .project-thumbnail img {
@@ -403,15 +408,17 @@ nav {
 }
 
 .meta-header h4 {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 700;
     color: var(--fg-color);
     line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 .pitch-desc {
-    font-size: 0.95rem;
-    color: #999;
+    font-size: 1rem;
+    color: #a0a0a0;
     line-height: 1.6;
 }
 
@@ -437,12 +444,14 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     width: 110%;
-    /* Break out of grid */
     min-width: 320px;
-    background: #0f0f0f;
-    border: 1px solid var(--accent);
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
     z-index: 50;
-    /* Float above neighbors */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -450,7 +459,7 @@ nav {
 
     /* 500ms transition delay on opening */
     transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s, visibility 0s linear 0.5s;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
 .project-wrap:hover .project-expanded-overlay, .project-wrap.touch-active .project-expanded-overlay {
@@ -495,15 +504,17 @@ nav {
 }
 
 .expanded-details .p-title {
-    font-size: 2rem;
-    font-weight: 900;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 700;
     color: var(--fg-color);
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .expanded-details .p-desc {
-    font-size: 1rem;
-    color: #aaaaaa;
+    font-size: 1.05rem;
+    color: #a0a0a0;
     line-height: 1.6;
 }
 

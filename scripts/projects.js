@@ -19,7 +19,7 @@
 
     function renderCards(list) {
         grid.innerHTML = list.map((p, i) => `
-            <div class="project-card fade-up" data-domain="${p.domain}" data-title="${p.title.toLowerCase()}" data-desc="${p.shortDescription.toLowerCase()}">
+            <a href="${p.link}" target="_blank" style="text-decoration: none; color: inherit; display: block;" class="project-card fade-up" data-domain="${p.domain}" data-title="${p.title.toLowerCase()}" data-desc="${p.shortDescription.toLowerCase()}">
                 <div class="card-media">
                     <img src="${p.realImage}" alt="${p.title}" loading="lazy">
                     <div class="card-media-overlay"></div>
@@ -34,7 +34,7 @@
                     <span class="card-tech">${p.techStack}</span>
                     <span class="material-symbols-outlined card-arrow">arrow_outward</span>
                 </div>
-            </div>
+            </a>
         `).join('');
 
         // Re-observe fade-ups
