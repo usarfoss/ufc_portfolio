@@ -640,15 +640,47 @@ nav {
 }
 
 /* About */
-.about-content {
-    max-width: 900px;
+.about-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
 }
 
-.about-content p {
-    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media(min-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+    }
+}
+
+.about-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--fg-color);
+    margin-top: 1rem;
+}
+
+.about-lead {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     color: var(--fg-color);
     line-height: 1.4;
     margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.about-sub {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    max-width: 500px;
 }
 
 /* Marquee / Echo Chamber */
@@ -774,6 +806,9 @@ nav {
     display: inline-block;
     padding: 2rem; /* Creates a large invisible hit area for the magnetic effect */
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .magnetic-btn {
@@ -793,6 +828,9 @@ nav {
     border-radius: 100px;
     text-decoration: none;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     /* Will-change optimizes the continuous transform animations */
     will-change: transform; 
