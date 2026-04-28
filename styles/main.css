@@ -381,7 +381,7 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .project-wrap:hover .project-thumbnail img, .project-wrap.touch-active .project-thumbnail img {
@@ -457,8 +457,8 @@ nav {
     pointer-events: none;
     /* Ignore mouse until fully visible */
 
-    /* 500ms transition delay on opening */
-    transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s, visibility 0s linear 0.5s;
+    /* 100ms transition delay on opening to prevent flickering */
+    transition: opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s, visibility 0s linear 0.1s;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 }
 
@@ -468,8 +468,8 @@ nav {
     transform: translate(-50%, -50%) scale(1);
     pointer-events: auto;
 
-    /* Keep the 500ms delay on opening, but instantaneous close when mouse leaves */
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, visibility 0s linear 0.5s;
+    /* Faster delay on opening */
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, visibility 0s linear 0.1s;
 }
 
 /* Close exactly when hover stops with no delay */
