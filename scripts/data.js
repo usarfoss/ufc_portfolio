@@ -53,5 +53,14 @@ const MOCK_PROJECTS = [
         realImage: "images/project_connectfour_light.png",
         shortDescription: "A server-authoritative multiplayer gaming client. Built on WebSockets for instantaneous move propagation, featuring dynamic matchmaking rooms and bulletproof server-side win-condition verification.",
         link: "https://connect-four-frontend-ruz5.onrender.com/"
+    },
+    {
+        id: 7,
+        title: "Collaborative Whiteboard",
+        domain: "Web App",
+        techStack: "React, Node.js, PostgreSQL",
+        realImage: "images/project_whiteboard_light.png",
+        shortDescription: "A real-time collaborative whiteboard application allowing users to create, share, and collaborate on digital canvases. Features user authentication, a suite of drawing tools, and instantaneous state synchronization.",
+        link: "https://collaborative-board-chi.vercel.app/"
     }
 ];
