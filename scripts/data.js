@@ -62,5 +62,14 @@ const MOCK_PROJECTS = [
         realImage: "images/project_whiteboard_light.png",
         shortDescription: "A real-time collaborative whiteboard application allowing users to create, share, and collaborate on digital canvases. Features user authentication, a suite of drawing tools, and instantaneous state synchronization.",
         link: "https://collaborative-board-chi.vercel.app/"
+    },
+    {
+        id: 8,
+        title: "Codehorse",
+        domain: "Web App",
+        techStack: "React, GitHub API, AI",
+        realImage: "images/project_codehorse.png",
+        shortDescription: "An AI-powered Pull Request reviewing platform. Enables users to authenticate via GitHub, seamlessly connect their repositories, and receive automated, intelligent code reviews on open PRs.",
+        link: "https://codehorse-ps8j.vercel.app/"
     }
 ];
